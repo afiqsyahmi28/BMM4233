@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Electrochemistry of Corrosion</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Electrochemistry of Corrosion</h1>
+  
+  <h2>EMF Series</h2>
+  <p>The electromotive force (EMF) series, also known as the galvanic series, ranks metals and other materials according to their tendency to undergo oxidation or reduction reactions.</p>
+  <button onclick="showEMFTable()">Show EMF Series</button>
+  <table id="emfTable" style="display: none;">
+    <tr>
+      <th>Metal</th>
+      <th>EMF Value (V)</th>
+    </tr>
+    <tr>
+      <td>Lithium (Li)</td>
+      <td>-3.04</td>
+    </tr>
+    <tr>
+      <td>Calcium (Ca)</td>
+      <td>-2.87</td>
+    </tr>
+    <tr>
+      <td>Sodium (Na)</td>
+      <td>-2.71</td>
+    </tr>
+    <tr>
+      <td>Magnesium (Mg)</td>
+      <td>-2.37</td>
+    </tr>
+    <tr>
+      <td>Zinc (Zn)</td>
+      <td>-0.76</td>
+    </tr>
+    <tr>
+      <td>Aluminum (Al)</td>
+      <td>-1.66</td>
+    </tr>
+    <tr>
+      <td>Iron (Fe)</td>
+      <td>-0.44</td>
+    </tr>
+    <tr>
+      <td>Nickel (Ni)</td>
+      <td>-0.23</td>
+    </tr>
+    <tr>
+      <td>Tin (Sn)</td>
+      <td>-0.14</td>
+    </tr>
+    <tr>
+      <td>Lead (Pb)</td>
+      <td>-0.13</td>
+    </tr>
+    <tr>
+      <td>Hydrogen (H<sub>2</sub>)</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Copper (Cu)</td>
+      <td>+0.34</td>
+    </tr>
+    <tr>
+      <td>Silver (Ag)</td>
+      <td>+0.80</td>
+    </tr>
+    <tr>
+      <td>Gold (Au)</td>
+      <td>+1.50</td>
+    </tr>
+  </table>
+  
+  <h2>Nernst Equation</h2>
+  <p>The Nernst equation relates the reduction potential of an electrochemical cell to the concentrations of the reactants and products involved in the cell reaction. It is expressed as:</p>
+  <p>E = E<sub>0</sub> + (0.0592 / n) log<sub>10</sub> C</p>
+  <p>Where:</p>
+  <ul>
+    <li>E is the cell potential under non-standard conditions</li>
+    <li>E<sub>0</sub> is the standard cell potential</li>
+    <li>n is the number of electrons transferred in the cell reaction</li>
+    <li>C is the concentration of the reactants/products</li>
+  </ul>
+  
+  <h3>Nernst Equation Calculator</h3>
+  <label for="e0">Standard Cell Potential (E<sub>0</sub>):</label>
+  <input type="number" id="e0" step="0.001" min="-10" max="10"><br>
+  <label for="n">Number of Electrons Transferred (n):</label>
+  <input type="number" id="n" step="1" min="1" max="10"><br>
+  <label for="c">Concentration of Reactants/Products (C):</label>
+  <input type="number" id="c" step="0.001" min="0.001" max="100"><br>
+  <button onclick="calculateNernstEquation()">Calculate</button>
+  <p id="nernst-result"></p>
+  
+  <h2>Corrosion Rate Calculation</h2>
+  <p>The corrosion rate can be calculated using Faraday's equation:</p>
+  <p>W = (ItM) / (nF)</p>
+  <p>Where:</p>
+  <ul>
+    <li>W is the corrosion rate (weight loss per unit time)</li>
+    <li>I is the applied current</li>
+    <li>t is the exposure time</li>
+    <li>M is the molar mass of the corroding substance</li>
+    <li>n is the number of electrons transferred in the corrosion reaction</li>
+    <li>F is Faraday's constant</li>
+  </ul>
+  
+  <h3>Corrosion Rate Calculator</h3>
+  <label for="current">Applied Current (I):</label>
+  <input type="number" id="current" step="0.001" min="0" max="10"><br>
+  <label for="time">Exposure Time (t):</label>
+  <input type="number" id="time" step="0.001" min="0" max="1000"><br>
+  <label for="molar-mass">Molar Mass (M):</label>
+  <input type="number" id="molar-mass" step="0.001" min="0" max="1000"><br>
+  <label for="electrons">Number of Electrons Transferred (n):</label>
+  <input type="number" id="electrons" step="1" min="1" max="10"><br>
+  <button onclick="calculateCorrosionRate()">Calculate</button>
+  <p id="corrosion-rate-result"></p>
+
+  <h2>Pourbaix Diagrams</h2>
+  <p>Pourbaix diagrams, also known as potential-pH diagrams, are used to illustrate the stability regions of different chemical species for a given metal in an aqueous environment at various pH and potential values. The diagrams show the conditions under which a metal can exist as a stable solid, oxide, hydroxide, or dissolved ion.</p>
+  <p>Here is an example of Pourbaix diagrams for common metals:</p>
+  
+  <h3>Iron (Fe) Pourbaix Diagram</h3>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Pourbaix_Diagram_of_Iron.svg/1200px-Pourbaix_Diagram_of_Iron.svg.png" alt="Iron Pourbaix Diagram" width="400">
+  <p>The Pourbaix diagram for iron shows the stable regions of iron species as a function of pH and potential. 
+  Iron is stable in a variety of forms, including metallic iron, ferrous ions (Fe2+), ferric ions (Fe3+), and numerous iron oxides and hydroxides, as shown by this. The illustration aids in comprehending how iron corrodes in various situations.</p>
+  
+  <h3>Aluminum (Al) Pourbaix Diagram</h3>
+  <img src="https://www.researchgate.net/profile/Michaela-Fousova/publication/331722518/figure/fig2/AS:746417383542784@1554971180131/Pourbaix-diagram-of-aluminium-22.png" alt="Aluminum Pourbaix Diagram" width="400">
+  <p>The Pourbaix diagram for aluminum demonstrates the stability regions of aluminum species based on pH and potential. 
+  It shows the stability of aluminum ions (Al3+), different aluminum oxides, and aluminum hydroxides. 
+  The graphic can be used to examine how aluminum reacts to corrosion under different circumstances.</p>
+  
+  <h3>Zinc (Zn) Pourbaix Diagram</h3>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Porbaix_diagram_of_Zn.png" alt="Zinc Pourbaix Diagram" width="400">
+  <p>The zinc Pourbaix diagram illustrates the stability regions of zinc species in relation to pH and potential. 
+  The stability zones for metallic zinc, zinc ions (Zn2+), and several zinc oxides and hydroxides are displayed. 
+  Understanding the zinc corrosion characteristics in various situations is made easier by the diagram.</p>
+
+  <h2>Polarization</h2>
+  <p>Polarization refers to the deviation of the electrode potential from its equilibrium value. It occurs when an external potential is applied to an electrochemical cell or due to the flow of current through the cell. Polarization can affect the rate of electrode reactions and the overall corrosion behavior.</p>
+  
+  <h3>Polarization Diagram</h3>
+  <p>A polarization diagram, also known as a Tafel plot, is a graphical representation of the relationship between the current density and the electrode potential. It helps to understand the behavior of an electrochemical cell under different applied potentials.</p>
+  
+  <h3>Behavior of Polarization</h3>
+  <p>The polarization behavior of an electrode can be described by the following key points:</p>
+  <ul>
+    <li><b>Anodic Polarization:</b> Anodic polarization occurs when the electrode potential becomes more positive (less negative) than its equilibrium value. It is associated with an increase in the anodic current and can lead to accelerated corrosion or other anodic reactions.</li>
+    <li><b>Cathodic Polarization:</b> Cathodic polarization occurs when the electrode potential becomes more negative (less positive) than its equilibrium value. It is associated with an increase in the cathodic current and can lead to a reduction in corrosion or other cathodic reactions.</li>
+    <li><b>Polarization Resistance:</b> Polarization resistance is a measure of the resistance to electron transfer at the electrode-electrolyte interface. It can be determined from the slope of the polarization curve and is inversely proportional to the rate of the electrode reaction.</li>
+    <li><b>Tafel Slopes:</b> Tafel slopes are the slopes of the linear regions in the polarization curve. They provide information about the electrochemical reaction kinetics and can be used to calculate the exchange current density and the corrosion rate.</li>
+  </ul>
+  
+  <h3>Polarization Diagram Example</h3>
+  <img src="https://d3i71xaburhd42.cloudfront.net/1782bef5697368a6aa60555938dc65ab56e59728/2-Figure2-1.png" alt="Polarization Diagram" width="500">
+  <p>Here is a polarization diagram as an illustration. It displays the relationship between a certain electrochemical cell's current density and electrode potential for various applied potentials. Typically, the diagram shows linear regions (Tafel regions) that correspond to the electrode's anodic and cathodic polarization characteristics.</p>
+  
+  <h3>Interpreting Polarization Diagram</h3>
+  <p>The electrochemical reactions taking place at the electrode surface and the corrosion behavior can both be clarified using the polarization diagram. By analyzing the diagram, one can determine:</p>
+  <ul>
+    <li>The corrosion potential, which represents the equilibrium potential of the electrode in the absence of polarization.</li>
+    <li>The corrosion current density, which shows how quickly corrosion is occurring under the circumstances.</li>
+    <li>The polarization resistance, which indicates how straightforward or challenging the electron transfer process is.</li>
+    <li>The Tafel slopes can be used to calculate the corrosion rate and reveal reaction kinetics information.</li>
+  </ul>
+  
+  <script>
+    function showEMFTable() {
+      var table = document.getElementById("emfTable");
+      if (table.style.display === "none") {
+        table.style.display = "table";
+      } else {
+        table.style.display = "none";
+      }
+    }
+    
+    function calculateNernstEquation() {
+      var e0 = parseFloat(document.getElementById("e0").value);
+      var n = parseInt(document.getElementById("n").value);
+      var c = parseFloat(document.getElementById("c").value);
+      
+      var e = e0 - (0.0592 / n) * Math.log10(c);
+      
+      document.getElementById("nernst-result").innerHTML = "E = " + e.toFixed(4) + " V";
+    }
+    
+    function calculateCorrosionRate() {
+      var current = parseFloat(document.getElementById("current").value);
+      var time = parseFloat(document.getElementById("time").value);
+      var molarMass = parseFloat(document.getElementById("molar-mass").value);
+      var electrons = parseInt(document.getElementById("electrons").value);
+      var F = 96485; // Faraday's constant (C/mol)
+      
+      var corrosionRate = (current * time * molarMass) / (electrons * F);
+      
+      document.getElementById("corrosion-rate-result").innerHTML = "Corrosion Rate: " + corrosionRate.toFixed(4) + " g/m<sup>2</sup>/s";
+    }
+  </script>
+</body>
+</html>
